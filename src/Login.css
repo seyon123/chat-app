@@ -1,0 +1,25 @@
+.login {
+    height: calc(100vh - 71px);
+    background-color: var(--dark);
+    display: grid;
+    place-items: center;
+}
+
+.loginContainer {
+    padding: 50px;
+    text-align: center;
+    background-color:var(--grey);
+    border-radius: 15px; 
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+}
+
+.loginContainer button {
+    margin-top: 50px;
+    border: none;
+    border-radius: 40px ;
+    background-color: var(--purple) ;
+    padding: 10px;
+    font-size: 18px;
+    color: var(--white);
+    cursor: pointer;
+}
