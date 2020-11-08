@@ -19,7 +19,7 @@ const Message = ({ message, user }) => {
 				 {message.message}
 				</div>
 			</div>
-			{!checkUser ? <div className="messageHeader"> {(new Date(message.timestamp.seconds * 1000)).toLocaleString()}</div> : ""}
+			{!checkUser ? <div className="messageHeader"> {new Date(message.timestamp?.toDate()).toUTCString()}</div> : ""}
 		</div>
 	);
 }

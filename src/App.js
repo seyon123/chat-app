@@ -1,15 +1,50 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Header from './components/Header'
 import "./App.css";
 import Chat from "./components/Chat";
-import Rooms from "./components/Rooms";
+import Login from "./components/Login";
 import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
+import { useStateValue } from './StateProvider';
 
 
 function App() {
+	const [{user}, dispatch] = useStateValue();
+
+	useEffect(() => {
+		const btnToggle = document.querySelector("#modeToggle i");
+        const theme = localStorage.getItem("theme");
+
+        if (theme === "light") {
+            btnToggle.classList.add("fa-sun");
+            btnToggle.style.padding = "4px 3.8px";
+            btnToggle.classList.remove("fa-moon");
+            document.querySelector("body").classList.add(theme);
+        }
+
+        btnToggle.addEventListener("click", () => {
+            if (btnToggle.classList.contains("fa-moon")) {
+                btnToggle.classList.add("fa-sun");
+                btnToggle.style.padding = "4px 3.8px";
+                btnToggle.classList.remove("fa-moon");
+                localStorage.setItem("theme", "light");
+            } else {
+                btnToggle.classList.add("fa-moon");
+                btnToggle.classList.remove("fa-sun");
+                btnToggle.style.padding = "4px 5px";
+                localStorage.clear();
+            }
+            document.querySelector("body").classList.toggle("light");
+        });
+	}, [user])
 	
 	return (
 		<div className="App">
+			{!user ? 
+				<>
+					<Header/>
+					<Login/>
+				</>
+			: 
 			<div className="appBody">
 				<Router>
 					<Switch>
@@ -17,15 +52,15 @@ function App() {
 							<Header/>
 							<Chat/>
 						</Route>
-						<Route exact path="/rooms">
+						<Route exact path="/chat/:id" >
 							<Header/>
-							<Rooms/>
+							<Chat/>
 						</Route>
-						<Route exact path="/chat/:id" render={props => <Chat key={props.match.params.id} id={props.match.params.id} />}></Route>
 						<Route><Redirect to="/"/></Route>
 					</Switch>
 				</Router>
 			</div>
+			}
 		</div>
 	);
 }

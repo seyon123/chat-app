@@ -1,8 +1,9 @@
 .chat {
-	flex: 0.65;
-	height: calc(100vh - 159px);
+	flex: 1;
+	height: calc(100vh - 71px);
+	position: relative;
 	overflow: hidden;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .content {
@@ -14,12 +15,17 @@
 	padding: 10px;
 }
 
+.messages {
+	height: calc(100vh - 233px);
+}
+
 .form {
 	text-align: center;
-	background-color: #e9e9e9;
-	position: fixed;
+	background-color: var(--dark);
+	position: sticky;
 	padding: 20px;
 	bottom: 0;
+	left: 0;
 	z-index: 1;
 	width: calc(100% - 40px);
 }
@@ -31,14 +37,38 @@
 }
 
 .formcontrol {
-	display: flex !important;
-	flex-direction: row !important;
+	display: flex;
+	flex-direction: row;
 }
 
 .formmessage {
 	flex: 1;
+	min-width: 100px;
+	font-family: "Montserrat", sans-serif;
+	border: none;
+	padding: 15px;
+	border-radius: 50px;
+}
+
+.formmessage:focus, .formbutton:focus {
+	outline: none;
 }
 
 .formbutton {
 	flex: 0;
+	color: var(--purple);
+	padding: 10px;
+	margin-left: 10px;
+	border: none;
+	border-radius: 50%;
+	cursor: pointer;
+	background: transparent;
+}
+
+.formbutton:disabled {
+	cursor: not-allowed;
+}
+
+.formbutton i {
+	font-size: 25px;
 }

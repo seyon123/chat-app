@@ -12,13 +12,14 @@ function Rooms() {
                 id: doc.id,
                 data: doc.data(),
             }))
-        )))
+        )));
     }, [])
 
     return (
         <div className="rooms">
+            <Room addNewRoom/>
             {rooms.map(room => (
-                <Room name={room.data.name}/>
+                <Room key={room.id} id={room.id} name={room.data.name}/>
             ))}
         </div>
     )

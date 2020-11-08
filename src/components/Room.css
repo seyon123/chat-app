@@ -23,13 +23,23 @@
     font-size: 20px;
 }
 
+
 .room .avatar {
     height: 40px;
     transform: unset;
 }
 
-.room p {
+.roomInfo p {
     font-weight: 400;
+    width: 150px;
     font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     margin: 0;
+}
+
+a {
+    text-decoration: none !important;
+    color: var(--light);
 }
