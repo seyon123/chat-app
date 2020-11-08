@@ -12,6 +12,7 @@ function Chat() {
 	const [messages, setMessages] = useState([{}]);
 	const { id } = useParams();
 	const [roomName, setRoomName] = useState('');
+	// eslint-disable-next-line
 	const [{user}, dispatch] = useStateValue();
 
 	useEffect(() => {
