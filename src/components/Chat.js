@@ -1,7 +1,7 @@
 import {FormControl, InputLabel, Input, IconButton } from "@material-ui/core";
 import React, { useState, useEffect} from 'react';
 import Message from './Message';
-import Header from './Header'
+import Rooms from './Rooms'
 import Login from "./Login";
 import { db } from "../firebase";
 import firebase from 'firebase';
@@ -61,29 +61,29 @@ function Chat() {
 	}
 
     return (
-        <div>
+        <>
             {user ?
-				<>
-					<Header/>
-					
-					<h2 className="welcome">Welcome <img className="avatar" src={user.photoURL} alt={user.displayName} /> {user.displayName}</h2>
-					<form className='form'>
-						<FormControl className="formcontrol">
-							<InputLabel>Type a message...</InputLabel>
-							<Input className="formmessage" value={message} onChange={event => setMessage(event.target.value)} />
-							<IconButton className="formbutton" type='submit' disabled={!message} variant="contained" color="primary" onClick={sendMessage}><SendIcon/></IconButton>
-						</FormControl>
-					</form>
-					<div className="appContent">
-						{messages.map((message, id) => (
-							<Message key={id} user={user} message={message}/>
-						))}
-						
+				<div className="content">
+					<Rooms/>
+					<div className="chat">
+						<h2 className="welcome">Welcome <img className="avatar" src={user.photoURL} alt={user.displayName} /> {user.displayName}</h2>
+						<form className='form'>
+							<FormControl className="formcontrol">
+								<InputLabel>Type a message...</InputLabel>
+								<Input className="formmessage" value={message} onChange={event => setMessage(event.target.value)} />
+								<IconButton className="formbutton" type='submit' disabled={!message} variant="contained" color="primary" onClick={sendMessage}><SendIcon/></IconButton>
+							</FormControl>
+						</form>
+						<div className="messages">
+							{messages.map((message, id) => (
+								<Message key={id} user={user} message={message}/>
+							))}
+						</div>
 					</div>
-				</>
-			: <><Header/><Login/></>
+				</div>
+			: <><Login/></>
 			}
-        </div>
+        </>
     )
 }
 
