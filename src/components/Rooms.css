@@ -8,4 +8,30 @@
     height: calc(100vh - 71px);
     overflow: hidden;
     overflow-y: auto;
+    transition: width 700ms, max-width 700ms, min-width 700ms;
+    
+}
+
+.close, .open {
+    max-width: 400px;
+    min-width: 250px;
+}
+
+
+
+/* .open {
+    width: 0px;
+    max-width: 0px;
+    min-width: 0px;
+} */
+
+
+@media screen and (max-width: 768px) {
+
+    .close {
+        width: 0px;
+        max-width: 0px;
+        min-width: 0px;
+    }
+
 }

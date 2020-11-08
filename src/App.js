@@ -13,14 +13,26 @@ function App() {
 
 	useEffect(() => {
 		const btnToggle = document.querySelector("#modeToggle i");
+		const hamburger = document.querySelector(".hamburger");
+		const rooms = document.querySelector("#rooms");
         const theme = localStorage.getItem("theme");
 
         if (theme === "light") {
             btnToggle.classList.add("fa-sun");
             btnToggle.style.padding = "4px 3.8px";
             btnToggle.classList.remove("fa-moon");
-            document.querySelector("body").classList.add(theme);
-        }
+			document.querySelector("body").classList.add(theme);
+		}
+		
+		hamburger.addEventListener("click", () => {
+			if (rooms.classList.contains("open")) {
+				rooms.classList.remove("open");
+				rooms.classList.add("close");
+			} else {
+				rooms.classList.remove("close");
+				rooms.classList.add("open");
+			}
+		});
 
         btnToggle.addEventListener("click", () => {
             if (btnToggle.classList.contains("fa-moon")) {

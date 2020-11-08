@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import './Rooms.css'
 import {db} from '../firebase'
 import Room from './Room';
+import cx from "classnames";
 
 function Rooms() {
     const [rooms, setRooms] = useState([]);
@@ -16,8 +17,8 @@ function Rooms() {
     }, [])
 
     return (
-        <div className="rooms">
-            <Room addNewRoom/>
+        <div id="rooms" className={cx("rooms","close")}>
+            <Room addNewRoom />
             {rooms.map(room => (
                 <Room key={room.id} id={room.id} name={room.data.name}/>
             ))}

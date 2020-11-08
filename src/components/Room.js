@@ -48,7 +48,7 @@ function Room({id, name, addNewRoom}) {
         </Link>
     ) : (
       <div className="room" onClick={createRoom}>
-          <h3>Add New Chat  [+] </h3>
+          <h4>Add New Chat  <i class="fas fa-plus-circle"></i> </h4>
       </div>
     )
 }
