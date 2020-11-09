@@ -3,7 +3,7 @@ import {useParams} from 'react-router-dom'
 import Message from './Message';
 import Rooms from './Rooms'
 import { db } from "../firebase";
-import firebase from 'firebase';
+import firebase from 'firebase/app';
 import { useStateValue } from "../StateProvider";
 import './Chat.css'
 

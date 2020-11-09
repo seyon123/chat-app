@@ -3,8 +3,6 @@ import "./Message.css";
 
 const Message = ({ message, user }) => {
 	const checkUser = user.photoURL === message.image;
-	console.log(message);
-
 	const divRef = useRef(null);
 
 	function convertTime(date){
@@ -37,7 +35,7 @@ const Message = ({ message, user }) => {
 				 {message.message}
 				</div>
 			</div>
-			{!checkUser ? <div className="messageHeader"> {convertTime(new Date(message.timestamp?.toDate()))}</div> : ""}
+			<div className="messageHeader"> {convertTime(new Date(message.timestamp?.toDate()))}</div>
 		</div>
 	);
 }
