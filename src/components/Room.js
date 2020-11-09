@@ -5,7 +5,6 @@ import './Room.css'
 
 
 function Room({id, name, addNewRoom}) {
-    const [seed, setSeed] = useState('');
     const [messages, setMessages] = useState('');
 
     useEffect(() => {
@@ -22,11 +21,6 @@ function Room({id, name, addNewRoom}) {
         
     }, [id])
     
-    
-    useEffect(() => {
-        setSeed(Math.floor(Math.random() * 5000));
-    }, [])
-
     const createRoom = () => {
         const roomName = prompt("Enter a name for the room");
         if (roomName) {
@@ -39,10 +33,10 @@ function Room({id, name, addNewRoom}) {
     return !addNewRoom ? (
         <Link to={`/chat/${id}`}>
             <div className="room">
-                <img className="avatar" src={`https://avatars.dicebear.com/api/gridy/${seed}.svg`} alt={name}/> 
+                <img className="avatar" src={`https://avatars.dicebear.com/api/gridy/${id}.svg`} alt={name}/> 
                 <div className="roomInfo">
                     <h2>{name}</h2>
-                    <p>{messages[0]?.message}</p>
+                    <p>{messages[0] ? `${(messages[0].user).split(' ')[0]}: ` : ""}{messages[0]?.message}</p>
                 </div>
             </div>
         </Link>

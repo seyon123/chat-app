@@ -7,6 +7,24 @@ const Message = ({ message, user }) => {
 
 	const divRef = useRef(null);
 
+	function convertTime(date){
+		const today = new Date();
+		const yesterday = new Date(today);
+		yesterday.setDate(yesterday.getDate() - 1);
+		
+		if(date.getDate() === today.getDate() &&  date.getMonth() === today.getMonth() && date.getFullYear() === today.getFullYear()){
+			return `Today at ${date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}`;
+		}
+
+		else if(date.getDate() === yesterday.getDate() &&  date.getMonth() === yesterday.getMonth() && date.getFullYear() === yesterday.getFullYear()){
+			return `Yesterday at ${date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}`;
+		}
+
+		else{
+			return date.toLocaleDateString();
+		}
+	}
+
 	useEffect(() => {
 		divRef.current.scrollIntoView({ behavior: 'smooth' });
 	}, []);
@@ -19,7 +37,7 @@ const Message = ({ message, user }) => {
 				 {message.message}
 				</div>
 			</div>
-			{!checkUser ? <div className="messageHeader"> {new Date(message.timestamp?.toDate()).toUTCString()}</div> : ""}
+			{!checkUser ? <div className="messageHeader"> {convertTime(new Date(message.timestamp?.toDate()))}</div> : ""}
 		</div>
 	);
 }
