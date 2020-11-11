@@ -5,11 +5,28 @@ import Chat from "./components/Chat";
 import Login from "./components/Login";
 import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
 import { useStateValue } from './StateProvider';
+import { auth } from "./firebase";
 
 
 function App() {
 	// eslint-disable-next-line
 	const [{user}, dispatch] = useStateValue();
+
+	useEffect(() => {
+		auth.onAuthStateChanged((authUser) => {
+			if (authUser) {
+				dispatch({
+					type: "SET_USER",
+					user: authUser,
+				});
+			} else {
+				dispatch({
+					type: "SET_USER",
+					user: null,
+				});
+			}
+		});
+	}, []);
 
 	useEffect(() => {
 		const btnToggle = document.querySelector("#modeToggle i");
