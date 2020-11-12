@@ -1,6 +1,6 @@
 .chat {
 	flex: 1;
-	height: calc(100vh - 71px);
+	height: calc(100vh - 218px);
 	position: relative;
 	overflow: hidden;
     overflow-y: auto;
@@ -15,16 +15,13 @@
 	padding: 10px;
 }
 
-.messages {
-	height: calc(100vh - 233px);
-}
 
 .form {
 	text-align: center;
 	background-color: var(--dark);
-	position: sticky;
+	position: fixed;
 	padding: 20px;
-	bottom: 0;
+	bottom: 60px;
 	left: 0;
 	z-index: 1;
 	width: calc(100% - 40px);
@@ -71,4 +68,11 @@
 
 .formbutton i {
 	font-size: 25px;
+}
+
+
+@media screen and (max-width: 768px) {
+	.messages {
+		min-height: calc(100vh - 323px);
+	}
 }

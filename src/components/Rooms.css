@@ -5,11 +5,16 @@
     max-width: 400px;
     min-width: 250px;
     background-color: var(--grey);
-    height: calc(100vh - 71px);
+    height: calc(100vh - 131px);
     overflow: hidden;
     overflow-y: auto;
-    transition: width 700ms, max-width 700ms, min-width 700ms;
-    
+    transition: width 700ms, max-width 700ms, min-width 700ms;  
+}
+
+.placeholder {
+    width: calc(100% - 40px);
+    padding-top: 90px;
+    display: block;
 }
 
 .close, .open {

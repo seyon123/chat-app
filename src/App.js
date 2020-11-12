@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import "./App.css";
 import Chat from "./components/Chat";
 import Login from "./components/Login";
+import Footer from "./components/Footer";
 import {
 	BrowserRouter as Router,
 	Redirect,
@@ -85,10 +86,12 @@ function App() {
 							<Route exact path="/">
 								<Header />
 								<Chat />
+								<Footer/>
 							</Route>
 							<Route exact path="/chat/:id">
 								<Header />
 								<Chat />
+								<Footer/>
 							</Route>
 							<Route>
 								<Redirect to="/" />

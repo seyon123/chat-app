@@ -22,6 +22,7 @@ function Rooms() {
             {rooms.map(room => (
                 <Room key={room.id} id={room.id} name={room.data.name}/>
             ))}
+            <div className="placeholder"></div>
         </div>
     )
 }
