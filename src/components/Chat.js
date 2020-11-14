@@ -54,7 +54,7 @@ function Chat() {
 			<Rooms/>
 			{id ? 
 			<div className="chat">
-				<h2 className="welcome">Welcome <img className="avatar" src={user.photoURL} alt={user.displayName} /> {user.displayName} to {roomName}</h2>
+				<h2 className="welcome">Welcome <img className="avatar" src={user.photoURL || `https://avatars.dicebear.com/api/gridy/${user.email}.svg`} alt={user.displayName} /> {user.displayName} to {roomName}</h2>
 				<div className="messages">
 					{messages.map((message, id) => (
 						<Message key={id} user={user} message={message}/>
