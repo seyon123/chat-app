@@ -29,12 +29,23 @@ function Chat() {
 	
 	const sendMessage = (event) => {
 		event.preventDefault();
-		db.collection('rooms').doc(id).collection('messages').add({
-			message: message,
-			user: user.displayName,
-			image: user.photoURL,
-			timestamp: firebase.firestore.FieldValue.serverTimestamp()
-		});
+		if(user.displayName){
+			db.collection('rooms').doc(id).collection('messages').add(
+			{
+				message: message,
+				user: user.displayName,
+				image: user.photoURL,
+				timestamp: firebase.firestore.FieldValue.serverTimestamp()
+			});
+		}else{
+			db.collection('rooms').doc(id).collection('messages').add(
+			{
+				message: message,
+				user: user.email,
+				image: `https://avatars.dicebear.com/api/gridy/${user.email}.svg`,
+				timestamp: firebase.firestore.FieldValue.serverTimestamp()
+			});
+		}
 		setMessage('');
 	}
 

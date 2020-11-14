@@ -47,15 +47,6 @@
 	display: none;
 }
 
-.center-text {
-	margin: 10px 5px;
-}
-
-.logout:hover {
-	text-decoration: underline;
-	cursor: pointer;
-}
-
 @media screen and (max-width: 768px) {
 	.navbar {
 		min-width: 50px;

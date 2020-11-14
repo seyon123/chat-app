@@ -11,6 +11,33 @@
     transition: width 700ms, max-width 700ms, min-width 700ms;  
 }
 
+.menu {
+    width: calc(100% - 40px);
+    padding: 20px;
+    text-align: left;
+    display: flex;
+    border-bottom: 1px solid var(--dark);
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logout {
+	cursor: pointer;
+	color: var(--white);
+	font-size: 15px;
+	background: var(--gradient);
+    border: none;
+	padding: 5px 10px;
+	float: right;
+	border-radius: 25px;
+	font-size: 1.2em;
+    transition: 200ms ease-in-out;
+}
+
+.logout:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
 .placeholder {
     width: calc(100% - 40px);
     padding-top: 90px;

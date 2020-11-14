@@ -18,7 +18,7 @@
 
 .form {
 	text-align: center;
-	background-color: var(--dark);
+	background-color: var(--grey);
 	position: fixed;
 	padding: 20px;
 	bottom: 60px;

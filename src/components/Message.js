@@ -2,7 +2,7 @@ import React, { useRef, useEffect, } from "react";
 import "./Message.css";
 
 const Message = ({ message, user }) => {
-	const checkUser = user.photoURL === message.image;
+	const checkUser = user.photoURL || `https://avatars.dicebear.com/api/gridy/${user.email}.svg` === message.image;
 	const divRef = useRef(null);
 
 	function convertTime(date){
