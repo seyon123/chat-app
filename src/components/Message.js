@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, } from "react";
+import moment from 'moment'
 import "./Message.css";
 
 const Message = ({ message, user }) => {
@@ -6,20 +7,10 @@ const Message = ({ message, user }) => {
 	const divRef = useRef(null);
 
 	function convertTime(date){
-		const today = new Date();
-		const yesterday = new Date(today);
-		yesterday.setDate(yesterday.getDate() - 1);
-		
-		if(date.getDate() === today.getDate() &&  date.getMonth() === today.getMonth() && date.getFullYear() === today.getFullYear()){
-			return `Today at ${date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}`;
-		}
-
-		else if(date.getDate() === yesterday.getDate() &&  date.getMonth() === yesterday.getMonth() && date.getFullYear() === yesterday.getFullYear()){
-			return `Yesterday at ${date.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}`;
-		}
-
-		else{
-			return date.toLocaleDateString();
+		if(moment(date).isSameOrBefore(moment().add(2,'hours'))) {
+			return moment(date).fromNow();
+		} else {
+			return moment(date).calendar();
 		}
 	}
 
