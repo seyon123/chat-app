@@ -4,14 +4,13 @@ import 'firebase/auth';
 import 'firebase/database';
 
 const firebaseApp = firebase.initializeApp({
-    apiKey: "AIzaSyAs3KtQElRDrA03yrd2D358ezXWrz6-LP8",
-    authDomain: "messageme-69ec9.firebaseapp.com",
-    databaseURL: "https://messageme-69ec9.firebaseio.com",
-    projectId: "messageme-69ec9",
-    storageBucket: "messageme-69ec9.appspot.com",
-    messagingSenderId: "553733023215",
-    appId: "1:553733023215:web:2c2563611495a11ba6021a",
-    measurementId: "G-XE03RJCE77"
+    apiKey: "AIzaSyDG0EPovkqMqpOj3fT3zFWuOLjnnetlGss",
+    authDomain: "reactachat.firebaseapp.com",
+    projectId: "reactachat",
+    storageBucket: "reactachat.appspot.com",
+    messagingSenderId: "219604564925",
+    appId: "1:219604564925:web:66af7286dcdd69093c70d4",
+    measurementId: "G-RSMTHCPE4N"
 });
 
 const db = firebaseApp.firestore();
