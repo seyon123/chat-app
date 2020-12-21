@@ -7,11 +7,10 @@ const Message = ({ message, user }) => {
 	const divRef = useRef(null);
 
 	function convertTime(date){
-		if(moment(date).isSameOrBefore(moment().add(2,'hours'))) {
+		if(moment(date).isSameOrAfter(moment().subtract(1,'days'))) {
 			return moment(date).fromNow();
-		} else {
-			return moment(date).calendar();
 		}
+		return moment(date).calendar();
 	}
 
 	useEffect(() => {
